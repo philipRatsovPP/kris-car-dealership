@@ -20,15 +20,12 @@ namespace Dealership.Models
         private string make;
         private string model;
         private decimal price;
-        private VehicleType vehicleType;
-        private int wheels;
+        private IList<IComment> comments = new List<IComment>();
 
-        protected Vehicle(string make, string model, int wheels, decimal price)
+        protected Vehicle(string make, string model, decimal price)
         {
             Make = make;
             Model = model;
-            Wheels = wheels;
-            //Type = vehicleType;
             Price = price;
         }
 
@@ -56,12 +53,6 @@ namespace Dealership.Models
 
         public VehicleType Type { get; set; }
 
-        public int Wheels
-        {
-            get => this.wheels;
-            private set => this.wheels = value;
-        }
-
         public decimal Price
         {
             get => this.price;
@@ -73,14 +64,23 @@ namespace Dealership.Models
             }
         }
 
-        public List<Comment> Comments { get; set; }
+        public IList<IComment> Comments => throw new NotImplementedException();
+
+        public void AddComment(IComment comment)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveComment(IComment comment)
+        {
+            throw new NotImplementedException();
+        }
 
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"Make: {Make}");
             sb.AppendLine($"Model: {Model}");
-            sb.AppendLine($"Wheels: {Wheels}");
             sb.AppendLine($"Price: ${Price}");
             return sb.ToString();
         }

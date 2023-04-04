@@ -8,11 +8,13 @@ namespace Dealership.Models
     {
         public const int MinSeats = 1;
         public const int MaxSeats = 10;
+        private int wheels = 4;
 
         private int seats;
-        public Car(string make, string model, int wheels, decimal price) : base(make, model, wheels, price)
+        public Car(string make, string model, decimal price, int seats)
+            : base(make, model, price)
         {
-            Seats = this.seats;
+            Seats = seats;
             Type = Enums.VehicleType.Car;
         }
 
@@ -25,6 +27,12 @@ namespace Dealership.Models
                 Validator.ValidateIntRangeSeats(value, MinSeats, MaxSeats, "seats");
                 this.seats = value;
             }
+        }
+
+        public int Wheels
+        {
+            get => this.wheels;
+            private set => this.wheels = value;
         }
         //ToDo TO STRING
     }

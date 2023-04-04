@@ -8,9 +8,10 @@ namespace Dealership.Models
     {
         public const int MinCapacity = 1;
         public const int MaxCapacity = 100;
+        private int wheels = 8;
         
         private int weightCapacity;
-        public Truck(string make, string model, int wheels, decimal price, int weightCapacity) : base(make, model, wheels, price)
+        public Truck(string make, string model, decimal price, int weightCapacity) : base(make, model, price)
         {
             WeightCapacity = weightCapacity;
             Type = VehicleType.Truck;
@@ -26,7 +27,11 @@ namespace Dealership.Models
             }
         }
 
-
+        public int Wheels
+        {
+            get => this.wheels;
+            private set => this.wheels = value;
+        }
 
         //ToDo TO STRING
     }

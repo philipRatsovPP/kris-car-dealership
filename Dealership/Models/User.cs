@@ -2,10 +2,11 @@
 using Dealership.Models.Contracts;
 using Dealership.Models.Enums;
 using System.Collections.Generic;
+using System.Data;
 
 namespace Dealership.Models
 {
-    public class User
+    public class User : IUser
     {
         private const string UsernamePattern = "^[A-Za-z0-9]+$";
         private const string InvalidUsernameFormatError = "Username contains invalid symbols!";
@@ -28,7 +29,48 @@ namespace Dealership.Models
         private const string YouAreNotTheAuthor = "You are not the author of the comment you are trying to remove!";
         private const string NoVehiclesHeader = "--NO VEHICLES--";
 
-        //ToDo
-        
+        public User(string username, string firstName, string lastName, string password, Role role)
+        {
+            //ToDo
+        }
+
+        public List<Vehicle> Vehicles { get; set; }
+
+        public string Username => throw new System.NotImplementedException();
+
+        public string FirstName => throw new System.NotImplementedException();
+
+        public string LastName => throw new System.NotImplementedException();
+
+        public string Password => throw new System.NotImplementedException();
+
+        public Role Role => throw new System.NotImplementedException();
+
+        IList<IVehicle> IUser.Vehicles => throw new System.NotImplementedException();
+
+        public void AddComment(IComment commentToAdd, IVehicle vehicleToAddComment)
+        {
+            vehicleToAddComment.AddComment(commentToAdd);
+        }
+
+        public void AddVehicle(IVehicle vehicle)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public string PrintVehicles()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void RemoveComment(IComment commentToRemove, IVehicle vehicleToRemoveComment)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void RemoveVehicle(IVehicle vehicle)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

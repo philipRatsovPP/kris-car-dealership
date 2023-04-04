@@ -15,15 +15,15 @@ namespace Dealership.Models.Contracts
 
         Role Role { get; }
 
-        IList<IMotorcycle> Vehicles { get; }
+        IList<IVehicle> Vehicles { get; }
 
-        void AddVehicle(IMotorcycle vehicle);
+        void AddVehicle(IVehicle vehicle);
 
-        void RemoveVehicle(IMotorcycle vehicle);
+        void RemoveVehicle(IVehicle vehicle);
 
-        void AddComment(IComment commentToAdd, IMotorcycle vehicleToAddComment);
+        void AddComment(IComment commentToAdd, IVehicle vehicleToAddComment);
 
-        void RemoveComment(IComment commentToRemove, IMotorcycle vehicleToRemoveComment);
+        void RemoveComment(IComment commentToRemove, IVehicle vehicleToRemoveComment);
 
         string PrintVehicles();
     }

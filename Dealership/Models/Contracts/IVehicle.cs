@@ -2,7 +2,7 @@
 
 namespace Dealership.Models.Contracts
 {
-    public interface IVehicle:IPriceable
+    public interface IVehicle : IPriceable, ICommentable
     {
         string Make { get; }
 
@@ -10,6 +10,5 @@ namespace Dealership.Models.Contracts
 
         VehicleType Type { get; }
 
-        int Wheels { get; }
     }
 }

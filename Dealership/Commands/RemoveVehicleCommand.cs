@@ -37,7 +37,7 @@ namespace Dealership.Commands
                 this.Repository.LoggedUser.Vehicles.Count,
                 "Cannot remove vehicle! The vehicle does not exist!");
 
-            IMotorcycle vehicle = this.Repository.LoggedUser.Vehicles[vehicleIndex];
+            IVehicle vehicle = this.Repository.LoggedUser.Vehicles[vehicleIndex];
 
             this.Repository.LoggedUser.RemoveVehicle(vehicle);
 

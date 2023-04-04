@@ -41,7 +41,7 @@ namespace Dealership.Commands
                 user.Vehicles.Count,
                 "The vehicle does not exist!");
 
-            IMotorcycle vehicle = user.Vehicles[vehicleIndex];
+            IVehicle vehicle = user.Vehicles[vehicleIndex];
 
             IComment comment = this.Repository.CreateComment(content, this.Repository.LoggedUser.Username);
 

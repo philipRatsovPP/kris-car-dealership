@@ -188,4 +188,9 @@ namespace Dealership.Tests.Models
             Assert.AreEqual(0, car.Comments.Count);
         }
     }
+
+    public static class CarData
+    {
+        public static int ValidSeats { get; } = 4;
+    }
 }

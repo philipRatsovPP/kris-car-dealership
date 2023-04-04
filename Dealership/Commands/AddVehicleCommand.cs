@@ -1,5 +1,6 @@
 ﻿using Dealership.Core.Contracts;
 using Dealership.Exceptions;
+using Dealership.Models;
 using Dealership.Models.Contracts;
 using Dealership.Models.Enums;
 using System;
@@ -37,19 +38,19 @@ namespace Dealership.Commands
 
         private string AddVehicle(VehicleType type, string make, string model, decimal price, string additionalParam)
         {
-            IMotorcycle vehicle;
+            IVehicle vehicle;
             switch (type)
             {
                 case VehicleType.Car:
                     int seats = this.ParseIntParameter(additionalParam, "seats");
-                    vehicle = this.Repository.CreateCar(make, model, price, seats);
+                    vehicle = (Car)this.Repository.CreateCar(make, model, price, seats);
                     break;
                 case VehicleType.Motorcycle:
-                    vehicle = this.Repository.CreateMotorcycle(make, model, price, additionalParam);
+                    vehicle = (Motorcycle)this.Repository.CreateMotorcycle(make, model, price, additionalParam);
                     break;
                 case VehicleType.Truck:
                     int weightCapacity = this.ParseIntParameter(additionalParam, "weightCapacity");
-                    vehicle = this.Repository.CreateTruck(make, model, price, weightCapacity);
+                    vehicle = (Truck)this.Repository.CreateTruck(make, model, price, weightCapacity);
                     break;
                 default:
                     throw new InvalidOperationException($"Creating vehicle type: {type} is not supported!");

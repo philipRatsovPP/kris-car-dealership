@@ -6,6 +6,11 @@ namespace Dealership.Commands
 {
     public class ShowUsersCommand : BaseCommand
     {
+        public ShowUsersCommand(IRepository repository)
+    : base(repository)
+        {
+        }
+
         public ShowUsersCommand(List<string> parameters, IRepository repository)
             : base(parameters, repository)
         {
